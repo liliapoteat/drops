@@ -47,6 +47,7 @@ window.onload = function() {
         if(drop){
             drop.reset(0, 0);
             drop.body.velocity.y = drop_speed;
+        }
     }
 
     function update () {

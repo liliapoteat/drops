@@ -1,8 +1,10 @@
-var Menu = function () {};
+var Menu = function() {};
 
 Menu.prototype = {
-  preload: function() {
-    this.optionCount = 1;
+
+  menuConfig: {
+    startY: 260,
+    startX: 30
   },
 
   init: function() {
@@ -12,6 +14,7 @@ Menu.prototype = {
       align: 'center'
     });
     this.titleText.anchor.set(0.5);
+    this.optionCount = 1;
   },
 
   addMenuOption: function(text, callback) {
@@ -38,16 +41,16 @@ Menu.prototype = {
     this.optionCount++;
   },
 
-  create: function() {
+  create: function () {
+    game.stage.disableVisibilityChange = true;
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
-    game.stage.disableVisibilityChange = true; // prevents game from
-                                               // pausing when tabbed out
-   	this.addMenuOption('Start', function (target) {
+
+    this.addMenuOption('Start', function () {
       game.state.start('game');
     });
-    this.addMenuOption('About', function (target) {
-      console.log('You clicked About!');
+    this.addMenuOption('About', function () {
+      game.state.start('about');
     });
   }
 };

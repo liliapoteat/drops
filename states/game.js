@@ -1,18 +1,15 @@
-window.onload = function() {
-    //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
-    //  Although it will work fine with this tutorial, it's almost certainly not the most current version.
-    //  Be sure to replace it with an updated version before you start experimenting with adding your own code.
+var Game = function() {};
 
-    var game = new Phaser.Game(1080, 1920, Phaser.AUTO, '', { preload: preload, create: create, update: update});
-
-    function preload () {
+Game.prototype = {
+    preload: function() {
 
         game.load.image('bl_drop', 'img/drops_blue.png');
         game.load.image('br_drop', 'img/drops_brown.png');
         game.load.image('gr_drop', 'img/drops_green.png');
         game.load.image('bucket', 'img/buckets_empty.png');
-    }
+    },
 
+  init: function() {
         var cursors;
         var bucket;
         var drop_speed;
@@ -20,8 +17,9 @@ window.onload = function() {
         var drop_x;
         var drop_pos;
         var live_drops;
+    },
 
-    function create () {
+    create: function() {
         //create drops
         percent_blue = 60;
         percent_brown = 20;
@@ -50,9 +48,9 @@ window.onload = function() {
         //test drops method
         //createDrops(400);
 
-    }
+    },
 
-    function createDrops(drop_speed){
+    createDrops: function(drop_speed) {
         if(game.time.now > dropTime) {
             if(drops.length < 1) {
                 live_drops.moveAll(drops);
@@ -68,9 +66,9 @@ window.onload = function() {
             live_drops.add(drop);
             drops.remove(drop);
         }
-    }
+    },
 
-    function update () {
+    update: function() {
         createDrops(drop_speed);
         // user presses arrow keys --> control bucket movement
         if (cursors.left.isDown) {
@@ -83,3 +81,4 @@ window.onload = function() {
             bucket.body.velocity.x = 0;
         }
     }
+};

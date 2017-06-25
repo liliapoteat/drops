@@ -65,7 +65,7 @@ Splash.prototype = {
     this.addGameStates();
 
     setTimeout(function() {
-      game.state.start('menu');
+      game.state.start('game');
     }, 1000);
   }
 };

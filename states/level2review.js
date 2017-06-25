@@ -11,7 +11,7 @@ Level2Review.prototype = {
     });
     this.titleText.anchor.set(0.5);
 
-    this.clean_percentage = 100 * (blue_collected + green_collected) / (drops_collected);
+    this.clean_percentage = Math.round(100 * (blue_collected + green_collected) / (drops_collected));
 
     var blue = game.add.image(game.world.centerX, 600, 'bl_drop');
 

@@ -4,8 +4,8 @@ Preview3.prototype = {
 
 	create: function() {
 		var background = game.add.sprite(0, 0, 'bg');
-		this.titleText = game.add.text(game.world.centerX, 480, 'level 3: Sebring, OH', {
-			font: '60pt Karla',
+		this.titleText = game.add.text(game.world.centerX, 480, 'Level 3: Sebring, OH', {
+			font: '60pt Karla-Bold',
 			fill: '#404040',
 			align: 'center'
 		});
@@ -13,7 +13,7 @@ Preview3.prototype = {
 
     var text = "\n\n\nWelcome to Sebring! \nIn the US, \n6-8 million homes \nstill get water \nfrom lead pipelines. \n\nThese corrode and \ninfect water toxins, \nleading to chronic \nhealth problems for \nfamilies and children.";
     var score_text = game.add.text(game.world.centerX, game.world.centerY, text, {
-      font: '60pt Karla-Bold',
+      font: '48pt Karla',
       fill: '#404040',
       align: 'center'
     });

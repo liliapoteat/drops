@@ -37,6 +37,10 @@ Level1Review.prototype = {
   
   update: function() {
     if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
+      drops_collected=0;
+      blue_collected=0;
+      green_collected=0;
+      brown_collected=0;
       game.state.start('game2');
     }
   }

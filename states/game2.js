@@ -164,7 +164,7 @@ Game2.prototype = {
       game.paused = true;
       setTimeout(function() {
         game.paused = false;
-        game.state.start('levelreview');
+        game.state.start('level2review');
       }, 1000);
     }
 };

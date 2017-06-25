@@ -104,7 +104,7 @@ Game.prototype = {
         drops.remove(drop);
     }
 
-    function collected (bucket, drop) {
+    collected: function(bucket, drop) {
         console.log("collision");
         drop.kill();
         drop.revive();

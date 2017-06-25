@@ -7,9 +7,13 @@ Menu.prototype = {
     startX: 30
   },
 
+  preload: function() {
+
+  },
+
   init: function() {
     this.titleText = game.make.text(game.world.centerX, 480, 'drops', {
-      font: '120pt Karla-Bold',
+      font: '160pt Karla-Bold',
       fill: '#404040',
       align: 'center'
     });
@@ -17,27 +21,17 @@ Menu.prototype = {
     this.optionCount = 1;
   },
 
-  addMenuOption: function(text, callback) {
-    var txt = game.add.text(30, this.optionCount * 80 + 600, text, {
-      font: '30pt Karla',
-      fill: 'white',
+  addMenuOption: function(text) {
+    var x = game.world.centerX;
+    var y = this.optionCount * 250 + 1190;
+
+    var txt = game.add.text(x, y, text, {
+      font: '60pt Karla-Bold',
+      fill: '#404040',
       align: 'center'
     });
-    var onOver = function(target) {
-      target.fill = '#FEFFD5';
-      target.stroke = "rgba(200,200,200,0.5)";
-    };
-    var onOut = function(target) {
-      target.fill = 'white';
-      target.stroke = "rgba(0,0,0,0)";
-    };
-    
-    txt.stroke = "rgba(0,0,0,0)";
-    txt.strokeThickness = 4;
-    txt.inputEnabled = true;
-    txt.events.onInputUp.add(callback);
-    txt.events.onInputOver.add(onOver);
-    txt.events.onInputOut.add(onOut);
+
+    utils.centerGameObjects([txt]);
     this.optionCount++;
   },
 
@@ -46,11 +40,17 @@ Menu.prototype = {
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
 
-    this.addMenuOption('Start', function () {
-      game.state.start('game');
-    });
-    this.addMenuOption('About', function () {
+    var logo = game.add.sprite(game.world.centerX, 1024, 'logo');
+    logo.scale.setTo(2.5, 2.5);
+    utils.centerGameObjects([logo]);
+
+    this.addMenuOption('press space to play');
+
+  },
+
+  update: function() {
+    if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
       game.state.start('about');
-    });
+    }
   }
 };

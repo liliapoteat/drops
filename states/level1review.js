@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var Level1Review = function() {};
 
 Level1Review.prototype = {

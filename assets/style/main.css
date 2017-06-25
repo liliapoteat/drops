@@ -10,8 +10,8 @@ html, body {
 }
 
 #game canvas {
-	width: 270px !important;
-	height: 480px !important;
+	width: 405px !important;
+	height: 720px !important;
 	margin: auto;
 }
 

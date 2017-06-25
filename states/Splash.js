@@ -8,6 +8,7 @@ Splash.prototype = {
     game.load.script('levelreview', 'states/levelreview.js');
     game.load.script('sources', 'states/sources.js');
     game.load.script('leaderboard', 'states/leaderboard.js');
+    game.load.script('level1review', 'states/level1review.js');
   },
 
   loadBgm: function() {
@@ -54,18 +55,19 @@ Splash.prototype = {
   },
 
   addGameStates: function() {
-    //game.state.add('menu', Menu);
+    game.state.add('menu', Menu);
     game.state.add('game', Game);
     game.state.add('levelreview', LevelReview);
     game.state.add('sources', Sources);
     game.state.add('leaderboard', Leaderboard);
+    game.state.add('level1review', Level1Review)
   },
 
   create: function() {
     this.addGameStates();
 
     setTimeout(function() {
-      game.state.start('game');
+      game.state.start('level1review');
     }, 1000);
   }
 };

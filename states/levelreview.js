@@ -51,5 +51,9 @@ LevelReview.prototype = {
       console.log('You clicked About!');
     });
   }
+
+  update: function() {
+    //TODO: display stats
+  }
 };
 

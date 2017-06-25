@@ -69,7 +69,7 @@ Game.prototype = {
 
     //test drops method
     //createDrops(400);
-},
+	},
 
     createDrops: function() {
         if(game.time.now > dropTime) {
@@ -100,3 +100,4 @@ Game.prototype = {
         game.physics.arcade.collide(bucket, drops);
     }
 };
+

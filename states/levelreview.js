@@ -1,6 +1,6 @@
 var LevelReview = function () {};
 
-Menu.prototype = {
+LevelReview.prototype = {
   preload: function() {
     this.optionCount = 1;
   },
@@ -50,6 +50,10 @@ Menu.prototype = {
     this.addMenuOption('About', function (target) {
       console.log('You clicked About!');
     });
+  }
+
+  update: function() {
+    //TODO: display stats
   }
 };
 

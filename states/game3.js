@@ -63,10 +63,10 @@ Game3.prototype = {
         if(prompt.exists) {
             prompt.destroy();
         }
-        prompt = game.add.text(75, 200, "Drops: " + drops_collected, {
-        font: '48pt Karla-Bold',
+        prompt = game.add.text(75, 175, String(drops_collected), {
+        font: '120pt Karla-Bold',
         fill: '#404040',
-        })
+        });
     },
 
     check_missed: function(drop) {
@@ -112,6 +112,11 @@ Game3.prototype = {
         dropTime = 0;
         drop_x = 0;
         bucket_velocity=800;
+
+        prompt = game.add.text(75, 175, String(drops_collected), {
+        font: '120pt Karla-Bold',
+        fill: '#404040',
+        });
         //align: 'center'
 	},
 

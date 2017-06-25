@@ -28,6 +28,8 @@ Game.prototype = {
         drop.visibility = false;
         drop.body.velocity.y = 0;
         drop.reset(0,0);
+        drop.visibility = false;
+
 
     },
 
@@ -71,7 +73,7 @@ Game.prototype = {
 
     createDrops: function() {
         if(game.time.now > dropTime) {
-            index = Math.round(Math.random()*drops.length);
+            index = Math.round(Math.random()*(drops.length-1));
             drop = drops.getAt(index);
             if(drop.body.velocity.y  == 0) {
                 drop_x = Math.round(Math.random()*950); //x ranges from 0 to 950

@@ -1,15 +1,15 @@
-var Game = function() {};
+var Game1 = function() {};
 
-Game.prototype = {
+Game1.prototype = {
     preload: function() {
         game.load.image('bl_drop', 'assets/img/drops_blue.png');
         game.load.image('br_drop', 'assets/img/drops_brown.png');
         game.load.image('gr_drop', 'assets/img/drops_green.png');
         game.load.image('bucket', 'assets/img/buckets_empty.png');
 
-        game.load.image('boston', 'assets/img/backgrounds_boston.png');
-        game.load.image('charleston', 'assets/img/backgrounds_charleston.png');
-        game.load.image('sebring', 'assets/img/backgrounds_sebring.png');
+        game.load.image('back_1', 'assets/img/backgrounds_boston.png');
+        game.load.image('back_2', 'assets/img/backgrounds_charleston.png');
+        game.load.image('back_3', 'assets/img/backgrounds_sebring.png');
     },
 
     init: function() {
@@ -74,14 +74,12 @@ Game.prototype = {
     },
 
     create: function() {
-        
         game.stage.backgroundColor = '#bce4f8';
-        game.add.sprite(0, 0, 'boston');
-
-        //create drops
-        percent_blue = 60;
-        percent_brown = 20;
+        game.add.sprite(0, 0, 'back_1');
+        percent_blue = 80;
+        percent_brown = 10;
         percent_green = 100 - percent_blue - percent_brown;
+
         game.physics.startSystem(Phaser.Physics.ARCADE);
         drops = game.add.group();
         drops.enableBody = true;

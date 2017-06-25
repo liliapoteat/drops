@@ -1,12 +1,12 @@
-var LevelReview = function () {};
+var Level2Review = function () {};
 
-LevelReview.prototype = {
+Level2Review.prototype = {
   preload: function() {
     this.optionCount = 1;
   },
 
   init: function() {
-    this.titleText = game.make.text(game.world.centerX, 300, 'Level Review', {
+    this.titleText = game.make.text(game.world.centerX, 300, 'Level 2 Review', {
       font: '60pt Karla',
       fill: '#FDFFB5',
       align: 'center'

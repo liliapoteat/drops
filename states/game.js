@@ -74,7 +74,8 @@ Game.prototype = {
     },
 
     create: function() {
-
+        
+        game.stage.backgroundColor = '#bce4f8';
         game.add.sprite(0, 0, 'boston');
 
         //create drops

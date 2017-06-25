@@ -7,9 +7,14 @@ Menu.prototype = {
     startX: 30
   },
 
+  preload: function() {
+    game.load.image('play_button', 'assets/img/buttons_play.png');
+    game.load.image('about_button', 'assets/img/buttons_about.png');
+  },
+
   init: function() {
     this.titleText = game.make.text(game.world.centerX, 480, 'drops', {
-      font: '120pt Karla-Bold',
+      font: '160pt Karla-Bold',
       fill: '#404040',
       align: 'center'
     });
@@ -17,27 +22,17 @@ Menu.prototype = {
     this.optionCount = 1;
   },
 
-  addMenuOption: function(text, callback) {
-    var txt = game.add.text(30, this.optionCount * 80 + 600, text, {
-      font: '30pt Karla',
-      fill: 'white',
-      align: 'center'
-    });
-    var onOver = function(target) {
-      target.fill = '#FEFFD5';
-      target.stroke = "rgba(200,200,200,0.5)";
-    };
-    var onOut = function(target) {
-      target.fill = 'white';
-      target.stroke = "rgba(0,0,0,0)";
-    };
-    
-    txt.stroke = "rgba(0,0,0,0)";
-    txt.strokeThickness = 4;
-    txt.inputEnabled = true;
-    txt.events.onInputUp.add(callback);
-    txt.events.onInputOver.add(onOver);
-    txt.events.onInputOut.add(onOut);
+  addMenuOption: function(img, onclick) {
+
+    var x = game.world.centerX;
+    var y = this.optionCount * 200 + 720;
+
+    var b = game.add.image(x, y, 400, 100, img);
+
+    b.inputEnabled = true;
+    b.events.onInputUp.add(onclick, this);
+
+    utils.centerGameObjects([b]);
     this.optionCount++;
   },
 
@@ -46,10 +41,11 @@ Menu.prototype = {
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
 
-    this.addMenuOption('Start', function () {
+    this.addMenuOption('play_button', function () {
       game.state.start('game');
+      console.log("HELLOOOO")
     });
-    this.addMenuOption('About', function () {
+    this.addMenuOption('about_button', function () {
       game.state.start('about');
     });
   }

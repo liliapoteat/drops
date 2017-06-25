@@ -162,7 +162,6 @@ Game3.prototype = {
       console.log('GAME OVER!');
       console.log(drops_collected + ' drops collected');
       game.paused = true;
-      brown_collected=0;
       setTimeout(function() {
         game.paused = false;
         game.state.start('level3review');

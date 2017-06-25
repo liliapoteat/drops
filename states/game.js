@@ -20,7 +20,7 @@ Game.prototype = {
         var drop_x;
         var drop_pos;
         var live_drops;
-        var bucket_velocity = 800; //TODO: fix :'(((
+        var bucket_velocity; //TODO: fix :'(((
         var bucket_scale = 0.7;
     },
 
@@ -57,9 +57,10 @@ Game.prototype = {
         bucket.body.onCollide = new Phaser.Signal();
         bucket.body.onCollide.add(this.collected, this);
 
-    drop_speed = 500;
-    dropTime = 0;
-    drop_x = 0;
+        drop_speed = 500;
+        dropTime = 0;
+        drop_x = 0;
+        bucket_velocity=800;
 
     //move this out of create for game
 
@@ -89,10 +90,10 @@ Game.prototype = {
         this.createDrops(drop_speed);
         // user presses arrow keys --> control bucket movement
         if (cursors.left.isDown) {
-            bucket.body.velocity.x = -800;
+            bucket.body.velocity.x = -bucket_velocity;
         }
         else if (cursors.right.isDown) {
-            bucket.body.velocity.x = 800;
+            bucket.body.velocity.x = bucket_velocity;
         }
         else {
             bucket.body.velocity.x = 0;

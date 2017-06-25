@@ -115,6 +115,10 @@ Game2.prototype = {
         drop_x = 0;
         bucket_velocity=800;
 
+        prompt = game.add.text(75, 175, String(drops_collected), {
+        font: '120pt Karla-Bold',
+        fill: '#404040',
+        });
     //move this out of create for game
 
     //test drops method

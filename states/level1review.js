@@ -29,13 +29,13 @@ Level1Review.prototype = {
 
     var brown = game.add.image(game.world.centerX, 1080, 'br_drop');
 
-    var percentage = game.add.text(game.world.centerX, 1240, String(this.clean_percentage) + "%", {
+    var percentage = game.add.text(game.world.centerX, 1240, String(100-this.clean_percentage) + "%", {
       font: '96pt Karla-Bold',
       fill: '#404040',
       align: 'center'
     });
 
-    var score_text = game.add.text(game.world.centerX, 1360, "cleanliness", {
+    var score_text = game.add.text(game.world.centerX, 1360, "pollution", {
       font: '60pt Karla',
       fill: '#404040',
       align: 'center'

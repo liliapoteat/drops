@@ -54,7 +54,7 @@ Splash.prototype = {
   },
 
   addGameStates: function() {
-    //game.state.add('menu', Menu);
+    game.state.add('menu', Menu);
     game.state.add('game', Game);
     game.state.add('levelreview', LevelReview);
     game.state.add('sources', Sources);
@@ -65,7 +65,7 @@ Splash.prototype = {
     this.addGameStates();
 
     setTimeout(function() {
-      game.state.start('game');
+      game.state.start('menu');
     }, 1000);
   }
 };

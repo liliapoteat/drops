@@ -26,7 +26,6 @@ Game.prototype = {
         this.green_collected = 0;
         this.brown_collected = 0;
         this.drops_collected = 0;
-
     },
 
     /**

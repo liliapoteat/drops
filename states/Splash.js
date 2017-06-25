@@ -64,7 +64,6 @@ Splash.prototype = {
     this.addGameStates();
 
     setTimeout(function() {
-      console.log('starting game!!!!');
       game.state.start('menu');
     }, 1000);
   }

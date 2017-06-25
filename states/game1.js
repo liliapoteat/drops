@@ -6,6 +6,7 @@ var brown_collected = 0;
 var drops_collected = 0;
 var MAX_DROPS = 10;
 
+
 Game1.prototype = {
     preload: function() {
         game.load.image('bl_drop', 'assets/img/drops_blue.png');
@@ -28,12 +29,6 @@ Game1.prototype = {
         var bucket_velocity;
         var prompt;
         this.bucket_scale = 0.8;
-
-        this.blue_collected = 0;
-        this.green_collected = 0;
-        this.brown_collected = 0;
-        this.drops_collected = 0;
-
     },
 
     /**
@@ -56,20 +51,20 @@ Game1.prototype = {
 
         // collect data to detect level ending
         if (drop.key.localeCompare('bl_drop') == 0) {
-        	this.blue_collected += 1;
+        	blue_collected += 1;
         }
         else if (drop.key.localeCompare('gr_drop') == 0) {
-        	this.green_collected += 1;
+        	green_collected += 1;
         }
 
         else { // the drop caught is brown
-        	this.brown_collected += 1;
+        	brown_collected += 1;
         }
-        this.drops_collected += 1;
+        drops_collected += 1;
         if(prompt.exists) {
             prompt.destroy();
         }
-        prompt = game.add.text(75, 175, "Drops: " + this.drops_collected, {
+        prompt = game.add.text(75, 175, "Drops: " + drops_collected, {
         font: '48pt Karla-Bold',
         fill: '#404040',
         })
@@ -90,8 +85,8 @@ Game1.prototype = {
     create: function() {
         game.stage.backgroundColor = '#bce4f8';
         game.add.sprite(0, 0, 'back_1');
-        percent_blue = 80;
-        percent_brown = 10;
+        percent_blue = 60;
+        percent_brown = 20;
         percent_green = 100 - percent_blue - percent_brown;
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -138,7 +133,7 @@ Game1.prototype = {
     },
 
     is_level_over: function() {
-    	return this.drops_collected >= 25;
+    	return drops_collected >= MAX_DROPS;
     },
 
     enable_to_hit_ground: function(drop) {
@@ -165,15 +160,18 @@ Game1.prototype = {
         drops.forEach(this.check_missed, this);
 
         if (this.is_level_over()) {
-        	this.drops_collected = 0;
-        	this.blue_collected = 0;
-        	this.green_collected = 0;
-        	this.brown_collected = 0;
-
-        	// TODO: pass information about the level the user just played to levelreview.js
-
-        	// [possibly not in this file] switch control flow to post-level info screen
+          this.endGame();
         }
+    },
+
+    endGame: function() {
+      console.log('GAME OVER!');
+      console.log(drops_collected + ' drops collected');
+      game.paused = true;
+      setTimeout(function() {
+        game.paused = false;
+        game.state.start('level1review');
+      }, 1000);
     }
 };
 

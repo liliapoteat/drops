@@ -6,6 +6,7 @@ var brown_collected = 0;
 var drops_collected = 0;
 var MAX_DROPS = 10;
 
+
 Game2.prototype = {
     preload: function() {
         game.load.image('bl_drop', 'assets/img/drops_blue.png');
@@ -64,7 +65,7 @@ Game2.prototype = {
         if(prompt.exists) {
             prompt.destroy();
         }
-        prompt = game.add.text(75, 200, "Drops: " + this.drops_collected, {
+        prompt = game.add.text(75, 200, "Drops: " + drops_collected, {
         font: '48pt Karla-Bold',
         fill: '#404040',
         })
@@ -174,7 +175,7 @@ Game2.prototype = {
       game.paused = true;
       setTimeout(function() {
         game.paused = false;
-        game.state.start('levelreview');
+        game.state.start('level2review');
       }, 1000);
     }
 };

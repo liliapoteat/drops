@@ -72,7 +72,7 @@ Splash.prototype = {
   create: function() {
     this.addGameStates();
     setTimeout(function() {
-      game.state.start('game1');
+      game.state.start('menu');
     }, 1000);
   }
 };

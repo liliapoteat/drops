@@ -28,12 +28,6 @@ Game3.prototype = {
         var prompt;
         var bucket_velocity;
         this.bucket_scale = 0.8;
-
-        this.blue_collected = 0;
-        this.green_collected = 0;
-        this.brown_collected = 0;
-        this.drops_collected = 0;
-
     },
 
     /**
@@ -56,20 +50,20 @@ Game3.prototype = {
 
         // collect data to detect level ending
         if (drop.key.localeCompare('bl_drop') == 0) {
-        	this.blue_collected += 1;
+        	blue_collected += 1;
         }
         else if (drop.key.localeCompare('gr_drop') == 0) {
-        	this.green_collected += 1;
+        	green_collected += 1;
         }
 
         else { // the drop caught is brown
-        	this.brown_collected += 1;
+        	brown_collected += 1;
         }
-        this.drops_collected += 1;
+        drops_collected += 1;
         if(prompt.exists) {
             prompt.destroy();
         }
-        prompt = game.add.text(75, 200, "Drops: " + this.drops_collected, {
+        prompt = game.add.text(75, 200, "Drops: " + drops_collected, {
         font: '48pt Karla-Bold',
         fill: '#404040',
         })
@@ -89,7 +83,7 @@ Game3.prototype = {
 
     create: function() {
         game.stage.backgroundColor = '#bce4f8';
-        game.add.sprite(0, 0, 'back_2');
+        game.add.sprite(0, 0, 'back_3');
         percent_blue = 60;
         percent_brown = 20;
         percent_green = 100 - percent_blue - percent_brown;
@@ -137,7 +131,7 @@ Game3.prototype = {
     },
 
     is_level_over: function() {
-    	return this.drops_collected >= 25;
+    	return drops_collected >= MAX_DROPS;
     },
 
     enable_to_hit_ground: function(drop) {
@@ -164,15 +158,18 @@ Game3.prototype = {
         drops.forEach(this.check_missed, this);
 
         if (this.is_level_over()) {
-        	this.drops_collected = 0;
-        	this.blue_collected = 0;
-        	this.green_collected = 0;
-        	this.brown_collected = 0;
-
-        	// TODO: pass information about the level the user just played to levelreview.js
-
-        	// [possibly not in this file] switch control flow to post-level info screen
+          this.endGame();
         }
+    },
+
+    endGame: function() {
+      console.log('GAME OVER!');
+      console.log(drops_collected + ' drops collected');
+      game.paused = true;
+      setTimeout(function() {
+        game.paused = false;
+        game.state.start('level3review');
+      }, 1000);
     }
 };
 

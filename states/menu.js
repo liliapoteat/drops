@@ -6,12 +6,11 @@ Menu.prototype = {
   },
 
   init: function() {
-    this.titleText = game.make.text(game.world.centerX, 300, 'Drops', {
-      font: '60pt Karla',
-      fill: '#FDFFB5',
+    this.titleText = game.make.text(game.world.centerX, 480, 'drops', {
+      font: '120pt Karla-Bold',
+      fill: '#404040',
       align: 'center'
     });
-    this.titleText.setShadow(3, 3, 'rgba(0, 0, 0, 0.5)', 5);
     this.titleText.anchor.set(0.5);
   },
 
@@ -30,7 +29,7 @@ Menu.prototype = {
       target.stroke = "rgba(0,0,0,0)";
     };
     
-    txt.stroke = "rgba(0,0,0,0";
+    txt.stroke = "rgba(0,0,0,0)";
     txt.strokeThickness = 4;
     txt.inputEnabled = true;
     txt.events.onInputUp.add(callback);

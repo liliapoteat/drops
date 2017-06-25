@@ -2,3 +2,8 @@
   font-family: 'Karla';
   src: url('../fonts/Karla-Regular.ttf');
 }
+
+@font-face {
+  font-family: 'Karla-Bold';
+  src: url('../fonts/Karla-Bold.ttf');
+}

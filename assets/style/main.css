@@ -6,6 +6,7 @@ html, body {
 	padding-top: 40px;
 	text-align: center;
 	margin: 0;
+	overflow: hidden;
 }
 
 #game canvas {
@@ -28,7 +29,6 @@ footer {
 
 	html, body {
 		padding-top: 10px;
-		overflow: hidden;
 	}
 
 	footer {

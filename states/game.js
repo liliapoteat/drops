@@ -44,22 +44,22 @@ Game.prototype = {
         cursors = game.input.keyboard.createCursorKeys();
         bucket = game.add.sprite(game.world.centerX, 1800, 'bucket');
         game.physics.enable(bucket, Phaser.Physics.ARCADE);
+         // reset bucket velocity
         bucket.body.velocity.x = 0;
         bucket.body.collideWorldBounds = true;
         
         bucket.body.onCollide = new Phaser.Signal();
         bucket.body.onCollide.add(this.collected, this);
 
+    drop_speed = 500;
+    dropTime = 0;
+    drop_x = 0;
 
-        drop_speed = 500;
-        dropTime = 0;
-        drop_x = 0;
+    //move this out of create for game
 
-        //move this out of create for game
-
-        //test drops method
-        //createDrops(400);
-    },
+    //test drops method
+    //createDrops(400);
+},
 
     createDrops: function(drop_speed) {
         if(game.time.now > dropTime) {
@@ -93,6 +93,7 @@ Game.prototype = {
         }
         game.physics.arcade.collide(bucket, drops);
 
+        live_drops.add(drop);
+        drops.remove(drop);
     }
-
 };

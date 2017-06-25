@@ -83,8 +83,8 @@ Game3.prototype = {
     create: function() {
         game.stage.backgroundColor = '#bce4f8';
         game.add.sprite(0, 0, 'back_3');
-        percent_blue = 40;
-        percent_brown = 50;
+        percent_blue = 20;
+        percent_brown = 70;
         percent_green = 100 - percent_blue - percent_brown;
 
         game.physics.startSystem(Phaser.Physics.ARCADE);

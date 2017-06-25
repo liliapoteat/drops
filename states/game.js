@@ -6,12 +6,13 @@ Game.prototype = {
         game.load.image('br_drop', 'assets/img/drops_brown.png');
         game.load.image('gr_drop', 'assets/img/drops_green.png');
         game.load.image('bucket', 'assets/img/buckets_empty.png');
+
         game.load.image('boston', 'assets/img/backgrounds_boston.png');
         game.load.image('charleston', 'assets/img/backgrounds_charleston.png');
         game.load.image('sebring', 'assets/img/backgrounds_sebring.png');
     },
 
-  init: function() {
+    init: function() {
         var cursors;
         var bucket;
         var drop_speed;
@@ -19,7 +20,7 @@ Game.prototype = {
         var drop_x;
         var drop_pos;
         var live_drops;
-        var bucket_velocity = 400;
+        var bucket_velocity = 800; //TODO: fix :'(((
         var bucket_scale = 0.7;
     },
 
@@ -88,10 +89,10 @@ Game.prototype = {
         this.createDrops(drop_speed);
         // user presses arrow keys --> control bucket movement
         if (cursors.left.isDown) {
-            bucket.body.velocity.x = -300;
+            bucket.body.velocity.x = -800;
         }
         else if (cursors.right.isDown) {
-            bucket.body.velocity.x = 300;
+            bucket.body.velocity.x = 800;
         }
         else {
             bucket.body.velocity.x = 0;

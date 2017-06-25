@@ -4,7 +4,7 @@ var blue_collected = 0;
 var green_collected = 0;
 var brown_collected = 0;
 var drops_collected = 0;
-var MAX_DROPS = 25;
+var MAX_DROPS = 10;
 
 Game2.prototype = {
     preload: function() {
@@ -26,7 +26,9 @@ Game2.prototype = {
         var drop_x;
         var drop_pos;
         var bucket_velocity;
+        var prompt;
         this.bucket_scale = 0.8;
+
     },
 
     /**
@@ -59,6 +61,14 @@ Game2.prototype = {
         	brown_collected += 1;
         }
         drops_collected += 1;
+        if(prompt.exists) {
+            prompt.destroy();
+        }
+        prompt = game.add.text(75, 200, "Drops: " + this.drops_collected, {
+        font: '48pt Karla-Bold',
+        fill: '#404040',
+        })
+
     },
 
     check_missed: function(drop) {

@@ -11,7 +11,7 @@ Preview3.prototype = {
 		});
 		this.titleText.anchor.set(0.5);
 
-    var text = "\n\n\nWelcome to Sebring! \nIn cities like Sebring\nin the US, 6-8 million\nhomes still get water\nfrom lead pipelines. \n\nThese corrode and \ninfect water toxins, \nleading to chronic \nhealth problems for \nfamilies and children.";
+    var text = "\n\n\nWelcome to Sebring! \nIn the US, 6-8 million\nhomes still get water\nfrom lead pipelines. \n\nThese corrode and \ninfect water toxins, \nleading to chronic \nhealth problems for \nfamilies and children.";
     var score_text = game.add.text(game.world.centerX, game.world.centerY, text, {
       font: '48pt Karla',
       fill: '#404040',

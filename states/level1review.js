@@ -1,11 +1,14 @@
-var LevelReview = function() {};
+var Level1Review = function () {};
 
-LevelReview.prototype = {
+Level1Review.prototype = {
+  preload: function() {
+    this.optionCount = 1;
+  },
 
   init: function() {
-    this.titleText = game.make.text(game.world.centerX, 480, 'game over!', {
-      font: '120pt Karla-Bold',
-      fill: '#404040',
+    this.titleText = game.make.text(game.world.centerX, 300, 'Level 1 Review', {
+      font: '60pt Karla',
+      fill: '#FDFFB5',
       align: 'center'
     });
     this.titleText.anchor.set(0.5);

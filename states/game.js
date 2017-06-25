@@ -19,14 +19,16 @@ Game.prototype = {
         var dropTime;
         var drop_x;
         var drop_pos;
-        var live_drops;
-        var bucket_velocity; //TODO: fix :'(((
+        var bucket_velocity;
         var bucket_scale = 0.7;
     },
 
     collected: function (bucket, drop) {
         console.log("collision");
-        drop.kill();
+        drop.visibility = false;
+        drop.body.velocity.y = 0;
+        drop.reset(0,0);
+
     },
 
     create: function() {
@@ -39,7 +41,6 @@ Game.prototype = {
         percent_green = 100 - percent_blue - percent_brown;
         game.physics.startSystem(Phaser.Physics.ARCADE);
         drops = game.add.group();
-        live_drops = game.add.group();
         drops.enableBody = true;
         drops.physicsBodyType = Phaser.Physics.ARCADE;
         drops.createMultiple(percent_blue/5, 'bl_drop');
@@ -68,26 +69,22 @@ Game.prototype = {
     //createDrops(400);
 },
 
-    createDrops: function(drop_speed) {
+    createDrops: function() {
         if(game.time.now > dropTime) {
-            if(drops.length < 1) {
-                live_drops.moveAll(drops);
+            index = Math.round(Math.random()*drops.length);
+            drop = drops.getAt(index);
+            if(drop.body.velocity.y  == 0) {
+                drop_x = Math.round(Math.random()*950); //x ranges from 0 to 950
+                drop.reset(drop_x, 0);
+                drop.body.velocity.y = drop_speed;
+                drop.visibility = true;
+                dropTime = game.time.now + 600;
             }
-            var random = Math.random();
-            drop_x = Math.round(random*950); //x ranges from 0 to 950
-            drop = drops.getRandom();
-            drop.reset(drop_x, 0);
-            drop.body.velocity.y = drop_speed;
-            dropTime = game.time.now + 600;
-            drop_x += 100;
-
-            live_drops.add(drop);
-            drops.remove(drop);
         }
     },
 
     update: function() {
-        this.createDrops(drop_speed);
+        this.createDrops();
         // user presses arrow keys --> control bucket movement
         if (cursors.left.isDown) {
             bucket.body.velocity.x = -bucket_velocity;
@@ -99,8 +96,5 @@ Game.prototype = {
             bucket.body.velocity.x = 0;
         }
         game.physics.arcade.collide(bucket, drops);
-
-        live_drops.add(drop);
-        drops.remove(drop);
     }
 };

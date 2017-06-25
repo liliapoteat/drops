@@ -8,8 +8,7 @@ Menu.prototype = {
   },
 
   preload: function() {
-    game.load.image('play_button', 'assets/img/buttons_play.png');
-    game.load.image('about_button', 'assets/img/buttons_about.png');
+
   },
 
   init: function() {
@@ -22,17 +21,17 @@ Menu.prototype = {
     this.optionCount = 1;
   },
 
-  addMenuOption: function(img, onclick) {
-
+  addMenuOption: function(text) {
     var x = game.world.centerX;
-    var y = this.optionCount * 200 + 720;
+    var y = this.optionCount * 250 + 1190;
 
-    var b = game.add.image(x, y, 400, 100, img);
+    var txt = game.add.text(x, y, text, {
+      font: '60pt Karla-Bold',
+      fill: '#404040',
+      align: 'center'
+    });
 
-    b.inputEnabled = true;
-    b.events.onInputUp.add(onclick, this);
-
-    utils.centerGameObjects([b]);
+    utils.centerGameObjects([txt]);
     this.optionCount++;
   },
 
@@ -41,12 +40,17 @@ Menu.prototype = {
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
 
-    this.addMenuOption('play_button', function () {
-      game.state.start('game');
-      console.log("HELLOOOO")
-    });
-    this.addMenuOption('about_button', function () {
+    var logo = game.add.sprite(game.world.centerX, 1024, 'logo');
+    logo.scale.setTo(2.5, 2.5);
+    utils.centerGameObjects([logo]);
+
+    this.addMenuOption('press space to play');
+
+  },
+
+  update: function() {
+    if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
       game.state.start('about');
-    });
+    }
   }
 };

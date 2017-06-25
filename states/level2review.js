@@ -24,7 +24,7 @@ Level2Review.prototype = {
     Green and blue are both worth the same (clean water) and brown contaminates that water
     */
 
-    this.clean_percentage = (blue_collected + green_collected) / (drops_collected);
+    this.clean_percentage = 100 * (blue_collected + green_collected) / (drops_collected);
     utils.makeTextBox('Your accuracy: ' + this.clean_percentage, 900, false);
 
     /*

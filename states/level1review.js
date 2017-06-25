@@ -11,7 +11,7 @@ Level1Review.prototype = {
 		});
 		this.titleText.anchor.set(0.5);
 
-    this.clean_percentage = (blue_collected + green_collected) / (drops_collected);
+    this.clean_percentage = 100 * (blue_collected + green_collected) / (drops_collected);
 
     var text = "Your bucket is \n" + this.clean_percentage + "\n % clean";
     var score_text = game.add.text(game.world.centerX, game.world.centerY, text, {

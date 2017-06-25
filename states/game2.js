@@ -65,11 +65,10 @@ Game2.prototype = {
         if(prompt.exists) {
             prompt.destroy();
         }
-        prompt = game.add.text(75, 200, "Drops: " + drops_collected, {
-        font: '48pt Karla-Bold',
+        prompt = game.add.text(75, 175, String(drops_collected), {
+        font: '120pt Karla-Bold',
         fill: '#404040',
-        })
-
+        });
     },
 
     check_missed: function(drop) {

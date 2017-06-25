@@ -36,7 +36,7 @@ Splash.prototype = {
   init: function () {
     //this.loading = game.make.sprite(game.world.centerX, 400, 'loading');
     this.status = game.make.text(game.world.centerX, 960, 'loading...', {
-      font: '72pt Karla-Bold',
+      font: '72pt Karla',
       fill: '#404040',
       align: 'center'
     });

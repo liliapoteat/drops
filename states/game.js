@@ -2,11 +2,13 @@ var Game = function() {};
 
 Game.prototype = {
     preload: function() {
-
         game.load.image('bl_drop', 'assets/img/drops_blue.png');
         game.load.image('br_drop', 'assets/img/drops_brown.png');
         game.load.image('gr_drop', 'assets/img/drops_green.png');
         game.load.image('bucket', 'assets/img/buckets_empty.png');
+        game.load.image('boston', 'assets/img/backgrounds_boston.png');
+        game.load.image('charleston', 'assets/img/backgrounds_charleston.png');
+        game.load.image('sebring', 'assets/img/backgrounds_sebring.png');
     },
 
   init: function() {
@@ -27,6 +29,9 @@ Game.prototype = {
     },
 
     create: function() {
+
+        game.add.sprite(0, 0, 'boston');
+
         //create drops
         percent_blue = 60;
         percent_brown = 20;

@@ -4,7 +4,7 @@ var blue_collected = 0;
 var green_collected = 0;
 var brown_collected = 0;
 var drops_collected = 0;
-var MAX_DROPS = 25;
+var MAX_DROPS = 5;
 
 Game3.prototype = {
     preload: function() {
@@ -27,12 +27,6 @@ Game3.prototype = {
         var drop_pos;
         var bucket_velocity;
         this.bucket_scale = 0.8;
-
-        this.blue_collected = 0;
-        this.green_collected = 0;
-        this.brown_collected = 0;
-        this.drops_collected = 0;
-
     },
 
     /**
@@ -55,16 +49,16 @@ Game3.prototype = {
 
         // collect data to detect level ending
         if (drop.key.localeCompare('bl_drop') == 0) {
-        	this.blue_collected += 1;
+        	blue_collected += 1;
         }
         else if (drop.key.localeCompare('gr_drop') == 0) {
-        	this.green_collected += 1;
+        	green_collected += 1;
         }
 
         else { // the drop caught is brown
-        	this.brown_collected += 1;
+        	brown_collected += 1;
         }
-        this.drops_collected += 1;
+        drops_collected += 1;
     },
 
     check_missed: function(drop) {
@@ -133,7 +127,7 @@ Game3.prototype = {
     },
 
     is_level_over: function() {
-    	return this.drops_collected >= 25;
+    	return drops_collected >= MAX_DROPS;
     },
 
     enable_to_hit_ground: function(drop) {
@@ -160,15 +154,18 @@ Game3.prototype = {
         drops.forEach(this.check_missed, this);
 
         if (this.is_level_over()) {
-        	this.drops_collected = 0;
-        	this.blue_collected = 0;
-        	this.green_collected = 0;
-        	this.brown_collected = 0;
-
-        	// TODO: pass information about the level the user just played to levelreview.js
-
-        	// [possibly not in this file] switch control flow to post-level info screen
+          this.endGame();
         }
+    },
+
+    endGame: function() {
+      console.log('GAME OVER!');
+      console.log(drops_collected + ' drops collected');
+      game.paused = true;
+      setTimeout(function() {
+        game.paused = false;
+        game.state.start('levelreview');
+      }, 1000);
     }
 };
 

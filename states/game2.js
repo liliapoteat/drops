@@ -4,7 +4,7 @@ var blue_collected = 0;
 var green_collected = 0;
 var brown_collected = 0;
 var drops_collected = 0;
-var MAX_DROPS = 25;
+var MAX_DROPS = 5;
 
 Game2.prototype = {
     preload: function() {

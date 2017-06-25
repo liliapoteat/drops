@@ -75,7 +75,7 @@ Game3.prototype = {
 
     create: function() {
         game.stage.backgroundColor = '#bce4f8';
-        game.add.sprite(0, 0, 'back_2');
+        game.add.sprite(0, 0, 'back_3');
         percent_blue = 60;
         percent_brown = 20;
         percent_green = 100 - percent_blue - percent_brown;

@@ -8,6 +8,9 @@ Splash.prototype = {
     game.load.script('game1', 'states/game1.js');
     game.load.script('game2', 'states/game2.js');
     game.load.script('game3', 'states/game3.js');
+    game.load.script('preview1', 'states/preview1.js');
+    game.load.script('preview2', 'states/preview2.js');
+    game.load.script('preview3', 'states/preview3.js');
     game.load.script('level1review', 'states/level1review.js');
     game.load.script('level2review', 'states/level2review.js');
     game.load.script('level3review', 'states/level3review.js');
@@ -60,10 +63,13 @@ Splash.prototype = {
   addGameStates: function() {
     game.state.add('menu', Menu);
     game.state.add('about', About);
+    game.state.add('preview1', Preview1);
     game.state.add('game1', Game1);
     game.state.add('level1review', Level1Review);
+    game.state.add('preview2', Preview2);
     game.state.add('game2', Game2);
     game.state.add('level2review', Level2Review);
+    game.state.add('preview3', Preview3);
     game.state.add('game3', Game3);
     game.state.add('level3review', Level3Review);
     game.state.add('sources', Sources);

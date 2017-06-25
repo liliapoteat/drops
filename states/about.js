@@ -59,7 +59,7 @@ About.prototype = {
 
   update: function() {
     if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
-      game.state.start('game1');
+      game.state.start('preview1');
     }
   }
 };

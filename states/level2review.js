@@ -56,7 +56,7 @@ Level2Review.prototype = {
       blue_collected=0;
       green_collected=0;
       brown_collected=0;
-      game.state.start('game3');
+      game.state.start('preview3');
     }
   }
 };

@@ -13,6 +13,8 @@ LevelReview.prototype = {
     });
     this.titleText.setShadow(3, 3, 'rgba(0, 0, 0, 0.5)', 5);
     this.titleText.anchor.set(0.5);
+
+    this.clean_percentage = 0;
   },
 
   addMenuOption: function(text, callback) {
@@ -30,7 +32,7 @@ LevelReview.prototype = {
       target.stroke = "rgba(0,0,0,0)";
     };
     
-    txt.stroke = "rgba(0,0,0,0";
+    txt.stroke = "rgba(0,0,0,0)"; 
     txt.strokeThickness = 4;
     txt.inputEnabled = true;
     txt.events.onInputUp.add(callback);
@@ -50,10 +52,31 @@ LevelReview.prototype = {
     this.addMenuOption('About', function (target) {
       console.log('You clicked About!');
     });
-  }
+  },
 
   update: function() {
-    //TODO: display stats
+    
+    /*
+    I think you can just access game.drops_collected, game.blue_collected, etc. directly
+    However, it is probably best practice to write functions to access these
+    variables, although I'm not sure how to write functions to communicate
+    between game.js and levelreview.js
+    */
+
+    /*
+    How the math is done to calculate clean_percentage:
+    Right now, there is no concept of green = +1, brown = -1, and blue = neutral
+    Green and blue are both worth the same (clean water) and brown contaminates that water
+    */
+
+    this.clean_percentage = (game.blue_collected + game.green_collected) / (game.drops_collected);
+
+    //TODO: add this percentage as text on the screen
+
+    /*
+    The "average bucket" for this particular region should probably be left
+    until after the MVP is done, since displaying it visually would require animation with
+    more sprites drawn/seems non-trivial
+    */ 
   }
 };
-

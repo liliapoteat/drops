@@ -1,0 +1,14 @@
+var game = new Phaser.Game(1080, 1920, Phaser.AUTO, '', { preload: preload, create: create }), Main = function () {};
+
+Main.prototype = {
+  preload: function () {
+    game.load.image('bg', 'assets/img/backgrounds_boston.png');
+    game.load.image('loading', 'assets/img/loading.png');
+    game.load.image('logo', 'assets/img/hack-logo.png');
+    game.load.script('splash', 'states/Splash.js');
+}
+
+function create () {
+  var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
+  logo.anchor.setTo(0.5, 0.5);
+}

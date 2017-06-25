@@ -3,10 +3,10 @@ var Game = function() {};
 Game.prototype = {
     preload: function() {
 
-        game.load.image('bl_drop', 'img/drops_blue.png');
-        game.load.image('br_drop', 'img/drops_brown.png');
-        game.load.image('gr_drop', 'img/drops_green.png');
-        game.load.image('bucket', 'img/buckets_empty.png');
+        game.load.image('bl_drop', 'assets/img/drops_blue.png');
+        game.load.image('br_drop', 'assets/img/drops_brown.png');
+        game.load.image('gr_drop', 'assets/img/drops_green.png');
+        game.load.image('bucket', 'assets/img/buckets_empty.png');
     },
 
   init: function() {
@@ -17,6 +17,13 @@ Game.prototype = {
         var drop_x;
         var drop_pos;
         var live_drops;
+        var bucket_velocity = 400;
+        var bucket_scale = 0.7;
+    },
+
+    collected: function (bucket, drop) {
+        console.log("collision");
+        drop.kill();
     },
 
     create: function() {
@@ -37,8 +44,13 @@ Game.prototype = {
         cursors = game.input.keyboard.createCursorKeys();
         bucket = game.add.sprite(game.world.centerX, 1800, 'bucket');
         game.physics.enable(bucket, Phaser.Physics.ARCADE);
-        // reset bucket velocity
         bucket.body.velocity.x = 0;
+        bucket.body.collideWorldBounds = true;
+        
+        bucket.body.onCollide = new Phaser.Signal();
+        bucket.body.onCollide.add(this.collected, this);
+
+
         drop_speed = 500;
         dropTime = 0;
         drop_x = 0;
@@ -47,7 +59,6 @@ Game.prototype = {
 
         //test drops method
         //createDrops(400);
-
     },
 
     createDrops: function(drop_speed) {
@@ -69,7 +80,7 @@ Game.prototype = {
     },
 
     update: function() {
-        createDrops(drop_speed);
+        this.createDrops(drop_speed);
         // user presses arrow keys --> control bucket movement
         if (cursors.left.isDown) {
             bucket.body.velocity.x = -300;
@@ -80,5 +91,8 @@ Game.prototype = {
         else {
             bucket.body.velocity.x = 0;
         }
+        game.physics.arcade.collide(bucket, drops);
+
     }
+
 };

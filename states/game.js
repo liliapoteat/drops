@@ -1,9 +1,4 @@
 window.onload = function() {
-    //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
-    //  Although it will work fine with this tutorial, it's almost certainly not the most current version.
-    //  Be sure to replace it with an updated version before you start experimenting with adding your own code.
-
-    var game = new Phaser.Game(1080, 1920, Phaser.AUTO, '', { preload: preload, create: create, update: update});
 
     function preload () {
 
@@ -20,6 +15,8 @@ window.onload = function() {
         var drop_x;
         var drop_pos;
         var live_drops;
+        var bucket_velocity = 400;
+        var bucket_scale = 0.7;
 
     function create () {
         //create drops
@@ -39,8 +36,13 @@ window.onload = function() {
         cursors = game.input.keyboard.createCursorKeys();
         bucket = game.add.sprite(game.world.centerX, 1800, 'bucket');
         game.physics.enable(bucket, Phaser.Physics.ARCADE);
-        // reset bucket velocity
         bucket.body.velocity.x = 0;
+        bucket.body.collideWorldBounds = true;
+        
+        bucket.body.onCollide = new Phaser.Signal();
+        bucket.body.onCollide.add(collected, this);
+
+
         drop_speed = 500;
         dropTime = 0;
         drop_x = 0;
@@ -49,7 +51,6 @@ window.onload = function() {
 
         //test drops method
         //createDrops(400);
-
     }
 
     function createDrops(drop_speed){
@@ -82,4 +83,13 @@ window.onload = function() {
         else {
             bucket.body.velocity.x = 0;
         }
+
+        game.physics.arcade.collide(bucket, drops);
+
     }
+
+    function collected (bucket, drop) {
+        console.log("collision");
+        drop.kill();
+    }
+};

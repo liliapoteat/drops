@@ -44,9 +44,9 @@ About.prototype = {
       align: 'center'
     });
 
-    var drop1 = game.add.image(x-200, y+360+300+300, 'bl_drop');
-    var drop2 = game.add.image(x, y+360+300+300, 'gr_drop');
-    var drop3 = game.add.image(x+200, y+360+300+300, 'br_drop');
+    var drop1 = game.add.image(x-150, y+360+300+300, 'bl_drop');
+    var drop2 = game.add.image(x-50, y+360+300+300, 'gr_drop');
+    var drop3 = game.add.image(x+150, y+360+300+300, 'br_drop');
 
     var prompt = game.add.text(x, 1920-150, 'press space to continue', {
       font: '48pt Karla-Bold',
@@ -59,7 +59,7 @@ About.prototype = {
 
   update: function() {
     if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
-      game.state.start('game1');
+      game.state.start('preview1');
     }
   }
 };

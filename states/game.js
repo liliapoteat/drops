@@ -66,7 +66,7 @@ Game.prototype = {
 
     //test drops method
     //createDrops(400);
-},
+	},
 
     createDrops: function(drop_speed) {
         if(game.time.now > dropTime) {
@@ -102,11 +102,5 @@ Game.prototype = {
 
         live_drops.add(drop);
         drops.remove(drop);
-    }
-
-    collected: function(bucket, drop) {
-        console.log("collision");
-        drop.kill();
-        drop.revive();
-    }
+    },
 };

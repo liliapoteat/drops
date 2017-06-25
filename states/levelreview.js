@@ -1,6 +1,6 @@
 var LevelReview = function () {};
 
-Menu.prototype = {
+LevelReview.prototype = {
   preload: function() {
     this.optionCount = 1;
   },

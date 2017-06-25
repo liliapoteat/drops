@@ -8,7 +8,8 @@ window.onload = function() {
 
     function preload () {
 
-        game.load.image('logo', 'hack-logo.png');
+        //game.load.image('logo', 'hack-logo.png');
+        game.load.image('bl_drop', 'drops_blue.png');
 
     }
 

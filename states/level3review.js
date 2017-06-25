@@ -35,6 +35,7 @@ Level3Review.prototype = {
       align: 'center'
     });
 
+    this.clean_percentage = 100 * (blue_collected + green_collected) / (drops_collected);
     var score_text = game.add.text(game.world.centerX, 1360, "pollution", {
       font: '60pt Karla',
       fill: '#404040',

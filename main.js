@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-window.onload = function() {
-
 var
   game = new Phaser.Game(1080, 1920, Phaser.AUTO, 'game'),
   Main = function () {};

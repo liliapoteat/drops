@@ -45,7 +45,7 @@ Menu.prototype = {
     game.stage.disableVisibilityChange = true; // prevents game from
                                                // pausing when tabbed out
    	this.addMenuOption('Start', function (target) {
-      console.log('You clicked Start!');
+      game.state.start('game');
     });
     this.addMenuOption('About', function (target) {
       console.log('You clicked About!');

@@ -15,6 +15,7 @@ Main.prototype = {
     game.state.add('Splash', Splash);
     game.state.start('Splash');
   }
+>>>>>>> 5e5f4a74e9dcc4c8c3ffb410fade25b1bdf5e69a
 
 };
 

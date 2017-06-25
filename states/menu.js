@@ -50,7 +50,7 @@ Menu.prototype = {
 
   update: function() {
     if (game.input.keyboard.isDown(Phaser.KeyCode.SPACEBAR)) {
-      game.state.start('game');
+      game.state.start('about');
     }
   }
 };

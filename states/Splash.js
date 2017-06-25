@@ -4,6 +4,7 @@ Splash.prototype = {
   loadScripts: function() {
     game.load.script('WebFont', 'vendor/webfontloader.js');
     game.load.script('menu', 'states/menu.js');
+    game.load.script('about', 'states/about.js');
     game.load.script('game', 'states/game.js');
     game.load.script('levelreview', 'states/levelreview.js');
     game.load.script('sources', 'states/sources.js');
@@ -31,7 +32,7 @@ Splash.prototype = {
 
   init: function () {
     //this.loading = game.make.sprite(game.world.centerX, 400, 'loading');
-    this.status = game.make.text(game.world.centerX, 960, 'Loading...', {
+    this.status = game.make.text(game.world.centerX, 960, 'loading...', {
       font: '72pt Karla-Bold',
       fill: '#404040',
       align: 'center'
@@ -55,6 +56,7 @@ Splash.prototype = {
 
   addGameStates: function() {
     game.state.add('menu', Menu);
+    game.state.add('about', About);
     game.state.add('game', Game);
     game.state.add('levelreview', LevelReview);
     game.state.add('sources', Sources);

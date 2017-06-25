@@ -4,7 +4,6 @@ var blue_collected = 0;
 var green_collected = 0;
 var brown_collected = 0;
 var drops_collected = 0;
-var MAX_DROPS = 10;
 
 Game3.prototype = {
     preload: function() {
@@ -84,8 +83,8 @@ Game3.prototype = {
     create: function() {
         game.stage.backgroundColor = '#bce4f8';
         game.add.sprite(0, 0, 'back_3');
-        percent_blue = 60;
-        percent_brown = 20;
+        percent_blue = 40;
+        percent_brown = 50;
         percent_green = 100 - percent_blue - percent_brown;
 
         game.physics.startSystem(Phaser.Physics.ARCADE);

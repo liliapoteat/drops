@@ -10,7 +10,7 @@ About.prototype = {
 
   init: function() {
     this.aboutText = "Drops is a game we created\nto raise awareness about the\ndisparities in access to clean\ndrinking water within\nthe United States.\n\n"
-    this.instructions = "Use your left and right\narrow keys to move the\nbucket to catch clean water\ndrops and avoid dirty ones."
+    this.instructions = "Use your left and right arrow\nkeys to move the bucket\nto catch clean water\ndrops and avoid dirty ones.\nCollect 15 drops to end the level."
   },
 
   create: function () {

@@ -3,7 +3,7 @@ Drops is a game we created to raise awareness about the disparities in access to
 
 Play at [www.drops.website](http://www.drops.website)! (desktop only)
 
-Drops won first place at [ByteHacks 2017](https://bytehacks.com/).
+Drops won first place at [ByteHacks 2017](https://bytehacks.org/).
 
 # Setup
 - Get Python 3

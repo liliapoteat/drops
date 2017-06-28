@@ -1,12 +1,15 @@
 # Drops
 Drops is a game we created to raise awareness about the disparities in access to clean drinking water within the United States. In this game you visit three cities with different water quality issues and management, and try to catch as much clean water as you can in your bucket.
 
+It is written primarily in Javascript using the Phaser.IO game framework.
+
 Play at [www.drops.website](http://www.drops.website)! (desktop only)
 
-Drops won first place at [ByteHacks 2017](https://bytehacks.org/).
+Drops won 1st Place and Best User Experience at [ByteHacks 2017](https://bytehacks.org/).
 
-# Setup
-- Get Python 3
-- Clone the repo
+# To run locally
+- Install Python
+- Clone this repo: `git clone ps://github.com/liliapoteat/drops.git`
 - `cd` into repo
-- Run `python -m http.server` (or start web server in any other way)
+- Run `python -m SimpleHTTPServer` (or start web server in any other way)
+- Head to `localhost:8000`

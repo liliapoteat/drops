@@ -9,7 +9,7 @@ Drops won 1st Place and Best User Experience at [ByteHacks 2017](https://bytehac
 
 # To run locally
 - Install Python
-- Clone this repo: `git clone ps://github.com/liliapoteat/drops.git`
+- Clone this repo: `git clone https://github.com/liliapoteat/drops.git`
 - `cd` into repo
-- Run `python -m SimpleHTTPServer` (or start web server in any other way)
+- Run `python -m SimpleHTTPServer` (Python 2.7) or `python -m http.server` (Python 3)
 - Head to `localhost:8000`
